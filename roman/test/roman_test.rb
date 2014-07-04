@@ -14,6 +14,10 @@ class TestRoman < Test::Unit::TestCase
     assert_equal 'II',Roman.convert(2)
     assert_equal 'III',Roman.convert(3)
     assert_equal 'IV',Roman.convert(4)
+    assert_equal 'X' , Roman.convert(10)
+    assert_equal 'XIV' , Roman.convert(14)
+    assert_equal 'XXXXVI' , Roman.convert(46)
+      
   end
 
 
