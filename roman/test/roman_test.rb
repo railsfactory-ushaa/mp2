@@ -23,6 +23,7 @@ class TestRoman < Test::Unit::TestCase
     assert_equal 'D' , Roman.convert(500)
     assert_equal 'DCCLXXXXIX'  , Roman.convert(799)
     assert_equal 'M' , Roman.convert(1000)
+    assert_equal 'MMMDCCCCLXXXXIX' ,Roman.convert(3999)
    
       
   end
