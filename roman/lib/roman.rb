@@ -1,68 +1,68 @@
 class Roman
 
-  def self.convert(input)
-          if (input < 1 || input > 4000)
+  def self.convert(number)
+          if (number < 1 || number > 4000)
         return "Invalid Roman Number Value"
     end
     String s = ""
     
-    while (input >= 1000) do
+    while (number >= 1000) do
         s += "M"
-        input -= 1000   
+        number -= 1000   
     end     
-    while (input >= 900) do
+    while (number >= 900) do
         s += "CM"
-        input -= 900
+        number -= 900
     end
-    while (input >= 500) do
+    while (number >= 500) do
         s += "D"
-        input -= 500
+        number -= 500
     end
     
-    while (input >= 400) do
+    while (number >= 400) do
         s += "CD"
-        input -= 400
+        number -= 400
     end
    
-    while (input >= 100) do
+    while (number >= 100) do
         s += "C"
-        input -= 100
+        number -= 100
     end
-    while (input >= 90) do
+    while (number >= 90) do
         s += "XC"
-        input -= 90
+        number -= 90
     end
-    while (input >= 50) do
+    while (number >= 50) do
         s += "L"
-        input -= 50
+        number -= 50
     end
    
-    while (input >= 40) do
+    while (number >= 40) do
         s += "XL"
-        input -= 40
+        number -= 40
     end
-    while (input >= 10) do
-        s += " "
-        input -= 10
+    while (number >= 10) do
+        s += "X "
+        number -= 10
     end
-    while (input >= 9) do
+    while (number >= 9) do
         s += "IX"
-        input -= 9
+        number -= 9
     end
  
-    while (input >= 5) do
+    while (number >= 5) do
         s += "V"
-        input -= 5 
+        number -= 5 
     end
   
-    while (input >= 4) do
+    while (number >= 4) do
         s += "IV"
-        input -= 4
+        number -= 4
     end
   
-    while (input >= 1) do
+    while (number >= 1) do
         s += "I"
-        input -= 1
+        number -= 1
     end   
    return s
   end
