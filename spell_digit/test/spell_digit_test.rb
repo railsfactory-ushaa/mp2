@@ -11,6 +11,9 @@ class TestSpell_digit < Test::Unit::TestCase
 
   def test_one
    assert_equal "ten",Spell_digit.convert(10)
+   assert_equal "eleven",Spell_digit.convert(11)
+   assert_equal "twelve",Spell_digit.convert(12)
+   
    
   end
 end
