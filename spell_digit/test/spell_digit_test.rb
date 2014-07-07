@@ -18,6 +18,7 @@ class TestSpell_digit < Test::Unit::TestCase
    assert_equal "six hundred and eighty seven",Spell_digit.convert(687)
    assert_equal "one thousand two hundred and fifty",Spell_digit.convert(1250)
    assert_equal "two thousand three hundred and fifty",Spell_digit.convert(2350)
+   assert_equal "five thousand eight hundred and ninety",Spell_digit.convert(5890)
    
    
    
