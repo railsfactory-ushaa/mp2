@@ -24,6 +24,7 @@ class TestSpell_digit < Test::Unit::TestCase
    assert_equal "five million two thousand one hundred",Spell_digit.convert(5002100)
    assert_equal "two million four thousand one hundred and fifty",Spell_digit.convert(2004150)
    assert_equal "five billion two thousand one hundred",Spell_digit.convert(5000002100)
+   assert_equal "ten billion five thousand nine hundred and ninety nine",Spell_digit.convert(10000005999)
  
    
    
