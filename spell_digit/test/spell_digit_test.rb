@@ -15,7 +15,7 @@ class TestSpell_digit < Test::Unit::TestCase
    assert_equal "twelve",Spell_digit.convert(12)
    assert_equal "thirty three",Spell_digit.convert(33)
    assert_equal "five hundred",Spell_digit.convert(500)
-   assert_equal "six hundred eighty seven",Spell_digit.convert(687)
+   assert_equal "six hundred and eighty seven",Spell_digit.convert(687)
    
    
   end
