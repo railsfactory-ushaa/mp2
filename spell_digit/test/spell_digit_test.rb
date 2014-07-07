@@ -26,5 +26,6 @@ class TestSpell_digit < Test::Unit::TestCase
    
    
    
+   
   end
 end
