@@ -13,6 +13,7 @@ class TestNumbers < Test::Unit::TestCase
     assert_equal '4th',Numbers.convert(4)
     assert_equal '15th',Numbers.convert(15)
     assert_equal '20th',Numbers.convert(20)
+    assert_equal '22nd',Numbers.convert(22)
      
    
    
