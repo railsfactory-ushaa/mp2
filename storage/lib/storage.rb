@@ -1,15 +1,21 @@
-require 'pry'
 class Storage
-  def self.dump(filename)
-      binding.pry
-      File.open("todox.txt","a") {|file| file.write("hello")}
+  def self.dump(str)
+     
+     f1 = File.open('todo.txt','a+') 
+     f1.puts(str)
+     f1.close
+     f2 = File.open('todo.txt','r')
+     data1 = f2.read
+     f2.close
+     return data1.strip
   end
   def self.load
-binding.pry
+
      data = ""
-     f = File.open("todox.txt","r")
+     f = File.open("todo.txt","r")
      data = f.read
     f.close
+    return data.strip
    
   end
 end
