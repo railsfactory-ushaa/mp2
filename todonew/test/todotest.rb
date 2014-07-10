@@ -2,7 +2,6 @@ require_relative '../lib/todolist.rb'
 require 'test/unit'
 
 
-
 class TestTodo < Test::Unit::TestCase
  def test_empty
   assert_equal true,Todolist.empty
@@ -36,9 +35,17 @@ end
  end
  def test_completed
    assert_equal "search done",Todolist.complete(1)
-   assert_equal 2,Todolist.pending
+   assert_equal "open done",Todolist.complete(0)
+   assert_equal 1,Todolist.pending
    assert_equal 3,Todolist.list
-   assert_equal 1,Todolist.completed
+   assert_equal 2,Todolist.completed
 end
+ def test_delete
+  assert_equal 1,Todolist.delete(0)
+  assert_equal 1,Todolist.pending
+  assert_equal 2,Todolist.list
+  assert_equal 1,Todolist.completed
+  
+ end
    
 end

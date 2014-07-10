@@ -27,12 +27,11 @@ var = @todo[num]
 @pending.delete var
 return s
 end
-def self.incomplete(num)
-@todo[num] + "done"
-var = @todo[num]
-@pending << var
-@completed.delete var
-end
+#def self.incomplete(num)
+#var = @todo[num]
+#@pending << var
+#@completed.delete var
+#end
 def self.delete(num)
 @completed.delete_at(num)
 return @completed.size
@@ -47,6 +46,12 @@ def self.empty
 @completed.clear
 @todo.clear
 return true
+end
+def show_pending(num)
+return @pending[num]
+end
+def show_completed(num)
+return @completed[num]
 end
 end
 #t = Todolist.new('usha.txt')
