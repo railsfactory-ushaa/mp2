@@ -61,5 +61,6 @@ def test_show_pending
 end
 def test_show_completed
   assert_equal nil,Todolist.show_completed(1)
+  
 end
 end
