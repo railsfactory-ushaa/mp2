@@ -1,74 +1,72 @@
 class Todolist 
-$pending = []
-$todo = []
-$completed = []
- attr_accessor :filename
+# attr_accessor :filename
  def initialize(filename)
    @filename = filename
+
+@pending = []
+@todo = []
+@completed = []
+
+
+
  end
 
 def pending
-  return $pending.size
+  return @pending
 end
 
 def list
-  $todo = $pending + $completed
- return $todo.size
+  @todo = @pending + @completed
+ @todo
 end
 
 def completed
-   return $completed.size
+   @completed
 end
 
 def add(title)
-  $pending << title
- return $pending.count
+  @pending << title
+  @pending
 end
 
 def complete(num)
-$completed << $pending[num - 1]
-$pending.delete_at(num - 1)
-return $completed.size
+@completed << @pending[num - 1]
+@pending.delete_at(num - 1)
+@completed
 end
 
 #def self.incomplete(num)
-#var = $todo[num]
-#$pending << var
-#$completed.delete var
+#var = @todo[num]
+#@pending << var
+#@completed.delete var
 #end
 
 def delete(num)
-$completed.delete_at(num - 1)
-return $completed.size
+@completed.delete_at(num - 1)
+@completed
 end
+
 def empty
-$pending.clear
-$completed.clear
-$todo.clear
+@pending = []
+@completed = []
+@todo = []
 return true
 end
-def modify(num,title)
-$pending[num - 1] = title
 
-return $pending[num - 1]
+def modify(num,title)
+@pending[num - 1] = title
+
+return @pending[num - 1]
 end
 
 def show_pending(num)
- return $pending[num - 1]
+ return @pending[num - 1]
 end
 
 def show_completed(num)
- return $completed[num - 1]
+ return @completed[num - 1]
 end
 
 end
 
-$s = Todolist.new("usha.txt")
-#t.pending
-#t.complete(num)
-#t.list
-#t.completed
-#t.delete(num)
-#t.modify(num,title)
-#t.add(item)
 
