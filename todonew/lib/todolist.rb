@@ -1,27 +1,24 @@
 class Todolist 
-# attr_accessor :filename
- def initialize(filename)
-   @filename = filename
 
-@pending = []
-@todo = []
-@completed = []
+def initialize(filename)
+  @filename = filename
+  @pending = []
+  @todo = []
+  @completed = []
 
-
-
- end
+end
 
 def pending
-  return @pending
+  @pending
 end
 
 def list
   @todo = @pending + @completed
- @todo
+  @todo
 end
 
 def completed
-   @completed
+  @completed
 end
 
 def add(title)
@@ -30,33 +27,26 @@ def add(title)
 end
 
 def complete(num)
-@completed << @pending[num - 1]
-@pending.delete_at(num - 1)
-@completed
+  @completed << @pending[num - 1]
+  @pending.delete_at(num - 1)
+  @completed
 end
 
-#def self.incomplete(num)
-#var = @todo[num]
-#@pending << var
-#@completed.delete var
-#end
-
 def delete(num)
-@completed.delete_at(num - 1)
-@completed
+  @completed.delete_at(num - 1)
+  @completed
 end
 
 def empty
-@pending = []
-@completed = []
-@todo = []
-return true
+  @pending = []
+  @completed = []
+  @todo = []
+  return true
 end
 
 def modify(num,title)
-@pending[num - 1] = title
-
-return @pending[num - 1]
+  @pending[num - 1] = title
+  return @pending[num - 1]
 end
 
 def show_pending(num)
