@@ -57,6 +57,14 @@ def show_completed(num)
  return @completed[num - 1]
 end
 
+def loadz
+
+f = File.open(@filename,"r")
+f.each_line {|line| @todo << line}
+@completed = @todo.select {|c| c.match("done")}
+@pending = @todo - @completed
+
+end
 end
 
 

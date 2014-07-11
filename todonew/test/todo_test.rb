@@ -192,5 +192,12 @@ def test_qcompleted
   assert_equal 2,@a.list.size
 
 end
+ def test_sload
+  @a.empty
+  
+  @a.loadz
 
+  assert_equal 2,@a.pending.size
+  assert_equal 2,@a.completed.size
+end
 end
