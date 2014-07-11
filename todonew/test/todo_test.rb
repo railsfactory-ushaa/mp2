@@ -4,7 +4,6 @@ class TestTodo < Test::Unit::TestCase
  
   $s = Todolist.new("usha.txt")
  
-
  def test_zempty
   assert_equal true,$s.empty
   assert_equal 0,$s.pending
