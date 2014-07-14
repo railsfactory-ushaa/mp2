@@ -6,12 +6,13 @@ class TestTodo < Test::Unit::TestCase
 def setup
 
   @a = Todolist.new("usha.txt")
- 
+  
+  
 end
 
 def teardown
 
-  @a=nil
+  @a = nil
  
 end
 
@@ -198,27 +199,31 @@ def test_save
   #precondition
   @a.empty
   @a.add("one pending")
-  @a.add("two done")
-
+  @a.add("two pending")
+  @a.add("three pending")
+  @a.add("four pending")
+  @a.complete(3)
+  
  #before state
- assert_equal 2,@a.pending.size
- assert_equal 0,@a.completed.size
- assert_equal 2,@a.list.size
+ 
 
+ assert_equal "three done",@a.show_completed(1)
+ 
+ assert_equal 3,@a.pending.size
+ assert_equal 1,@a.completed.size
+ assert_equal 4,@a.list.size
 
+ 
  #action
  @a.save
 
  #after state
- assert_equal 2,@a.pending.size
- assert_equal 0,@a.completed.size
- assert_equal 2,@a.list.size
+ 
+ assert_equal 47,@a.save
+ 
 end
 
  def test_sload
- #precondition
-  @a.empty
- #before condition
 
  assert_equal 0,@a.pending.size
  assert_equal 0,@a.completed.size
@@ -228,9 +233,9 @@ end
  @a.loadz
 
  #after
- assert_equal 1,@a.pending.size
+ assert_equal 3,@a.pending.size
  assert_equal 1,@a.completed.size
- assert_equal 2,@a.list.size
+ assert_equal 4,@a.list.size
 
  
 end

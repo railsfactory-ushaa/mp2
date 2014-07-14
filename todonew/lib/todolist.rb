@@ -13,7 +13,7 @@ def pending
 end
 
 def list
-  @todo = @pending + @completed
+  @todo = @completed + @pending
   @todo
 end
 
@@ -28,6 +28,9 @@ end
 
 def complete(num)
   @completed << @pending[num - 1]
+  for i in 0...@completed.size
+    @completed[i].gsub!(/pending/,"done")
+  end
   @pending.delete_at(num - 1)
   @completed
 end
@@ -63,7 +66,7 @@ def save
   str = @todo.join("\n")
   f.write(str)
   f.close
-  return true
+  return File.new(@filename).size
 end
 
 def loadz
