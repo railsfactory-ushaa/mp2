@@ -95,6 +95,7 @@ end
 
 def test_delete
   # precondition
+
   @a.empty
   @a.add("one")
   @a.complete(1)
