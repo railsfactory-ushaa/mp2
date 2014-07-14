@@ -201,7 +201,6 @@ def test_save
   @a.add("one pending")
   @a.add("two pending")
   @a.add("three pending")
-  #@a.add("four pending")
   @a.complete(3)
   
  #before state

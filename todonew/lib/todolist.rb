@@ -84,7 +84,7 @@ end
 
 def save
 
-  f = File.open(@filename,"w")
+  f = File.new(@filename,"w")
   str = ""
   str = @todo.join("\n")
   f.write(str)
@@ -108,7 +108,7 @@ end
 
 def save1(filename)
 
-  f = File.open(filename,"w")
+  f = File.new(filename,"w")
   str = ""
   str = @todo.join("\n")
   f.write(str)
@@ -128,7 +128,6 @@ def load1(filename)
   @pending = @todo - @completed
 
 end
-
 
 end
 
