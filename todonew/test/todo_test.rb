@@ -17,7 +17,7 @@ def teardown
 end
 
 
-def test_zempty
+def test_empty
   @a.empty
   assert_equal 0,@a.pending.size
   assert_equal 0,@a.completed.size
@@ -170,7 +170,7 @@ def test_pend
 
 end
 
-def test_qcompleted
+def test_completed
   #pre condition
   @a.empty
   @a.add("one")
@@ -219,7 +219,7 @@ def test_save
 
  #after state
  
- assert_equal 47,@a.save
+ assert_equal 4,@a.save
  
 end
 
@@ -239,4 +239,51 @@ end
 
  
 end
+
+ def test_save1
+  #precondition
+  @a.empty
+  @a.add("five pending")
+  @a.add("six pending")
+  @a.add("seven pending")
+  @a.add("eight pending")
+  @a.complete(3)
+  
+ #before state
+ 
+
+ assert_equal "seven done",@a.show_completed(1)
+ 
+ assert_equal 3,@a.pending.size
+ assert_equal 1,@a.completed.size
+ assert_equal 4,@a.list.size
+
+ 
+ #action
+ @a.save1("b.txt")
+
+ #after state
+ 
+ assert_equal 4,@a.save1("b.txt")
+ 
+end
+
+ def test_loadz1
+
+ assert_equal 0,@a.pending.size
+ assert_equal 0,@a.completed.size
+ 
+ #action
+  
+ @a.load1("b.txt")
+
+ #after
+ assert_equal 3,@a.pending.size
+ assert_equal 1,@a.completed.size
+ assert_equal 4,@a.list.size
+
+ 
+end
+ 
+
 end
