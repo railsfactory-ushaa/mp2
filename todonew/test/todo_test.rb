@@ -4,10 +4,11 @@ class TestTodo < Test::Unit::TestCase
  
 
 def setup
-
+  
   @a = Todolist.new("usha.txt")
+  File.delete("usha.txt") if File.exists?("usha.txt") == "true"
   
-  
+
 end
 
 def teardown
@@ -23,7 +24,6 @@ def test_empty
   assert_equal 0,@a.completed.size
   assert_equal 0,@a.list.size
 end
-
 
 
 def test_add1
@@ -201,7 +201,7 @@ def test_save
   @a.add("one pending")
   @a.add("two pending")
   @a.add("three pending")
-  @a.add("four pending")
+  #@a.add("four pending")
   @a.complete(3)
   
  #before state
@@ -209,9 +209,9 @@ def test_save
 
  assert_equal "three done",@a.show_completed(1)
  
- assert_equal 3,@a.pending.size
+ assert_equal 2,@a.pending.size
  assert_equal 1,@a.completed.size
- assert_equal 4,@a.list.size
+ assert_equal 3,@a.list.size
 
  
  #action
@@ -219,7 +219,7 @@ def test_save
 
  #after state
  
- assert_equal 4,@a.save
+ assert_equal 3,@a.save
  
 end
 
@@ -233,9 +233,9 @@ end
  @a.loadz
 
  #after
- assert_equal 3,@a.pending.size
+ assert_equal 2,@a.pending.size
  assert_equal 1,@a.completed.size
- assert_equal 4,@a.list.size
+ assert_equal 3,@a.list.size
 
  
 end
