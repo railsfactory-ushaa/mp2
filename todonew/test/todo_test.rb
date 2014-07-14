@@ -192,12 +192,45 @@ def test_qcompleted
   assert_equal 2,@a.list.size
 
 end
- def test_sload
-  @a.empty
-  
-  @a.loadz
 
-  assert_equal 2,@a.pending.size
-  assert_equal 2,@a.completed.size
+def test_save
+  #precondition
+  @a.empty
+  @a.add("one pending")
+  @a.add("two done")
+
+ #before state
+ assert_equal 2,@a.pending.size
+ assert_equal 0,@a.completed.size
+ assert_equal 2,@a.list.size
+
+
+ #action
+ @a.save
+
+ #after state
+ assert_equal 2,@a.pending.size
+ assert_equal 0,@a.completed.size
+ assert_equal 2,@a.list.size
+end
+
+ def test_sload
+ #precondition
+  @a.empty
+ #before condition
+
+ assert_equal 0,@a.pending.size
+ assert_equal 0,@a.completed.size
+ 
+ #action
+  
+ @a.loadz
+
+ #after
+ assert_equal 1,@a.pending.size
+ assert_equal 1,@a.completed.size
+ assert_equal 2,@a.list.size
+
+ 
 end
 end

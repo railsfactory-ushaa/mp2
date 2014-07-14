@@ -57,12 +57,21 @@ def show_completed(num)
  return @completed[num - 1]
 end
 
+def save
+  f = File.open(@filename,"w")
+  str = ""
+  str = @todo.join("\n")
+  f.write(str)
+  f.close
+  return true
+end
+
 def loadz
 
-f = File.open(@filename,"r")
-f.each_line {|line| @todo << line}
-@completed = @todo.select {|c| c.match("done")}
-@pending = @todo - @completed
+  f = File.open(@filename,"r")
+  f.each_line {|line| @todo << line}
+  @completed = @todo.select {|c| c.match("done")}
+  @pending = @todo - @completed
 
 end
 end
